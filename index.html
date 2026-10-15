@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>I'm Sorry 🥺💗</title>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;min-height:100vh;overflow-x:hidden;font-family:system-ui,-apple-system,Segoe UI,sans-serif;
+    background:radial-gradient(circle at top,#ffe5f0 0,#ffc6dc 38%,#ff8fb8 100%);
+    color:#7d1747;display:flex;align-items:center;justify-content:center;text-align:center;padding:22px}
+  .card{width:min(720px,100%);padding:30px 20px 34px;border:2px solid #ffffffa8;border-radius:30px;
+    background:#fff7fbcc;box-shadow:0 18px 60px #a82b5c30;backdrop-filter:blur(8px);position:relative}
+  .face{font-size:clamp(56px,13vw,90px);animation:bob 1.7s ease-in-out infinite}
+  h1{font-size:clamp(42px,11vw,76px);line-height:1;margin:8px 0;color:#e52e78;letter-spacing:2px;text-shadow:2px 3px #fff}
+  .sub{font-size:clamp(17px,4.5vw,23px);margin:14px auto 22px;max-width:520px}
+  .sorrywall{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:22px 0}
+  .sorrywall span{background:#fff;border-radius:14px;padding:10px 3px;font-size:clamp(13px,3.5vw,18px);font-weight:800;color:#d9236d;box-shadow:0 3px 0 #f7bad1}
+  button{border:0;border-radius:999px;padding:15px 22px;background:#e52e78;color:white;font-size:17px;font-weight:800;
+    box-shadow:0 6px 0 #a71951;cursor:pointer;margin:7px;transition:transform .15s}
+  button:active{transform:translateY(4px);box-shadow:0 2px 0 #a71951}
+  #extra{display:none;font-size:21px;font-weight:750;margin:22px 0 0;line-height:1.6}
+  .tiny{font-size:13px;opacity:.75;margin-top:22px}
+  .heart{position:fixed;bottom:-40px;pointer-events:none;animation:floatUp linear forwards;z-index:0}
+  .card>*{position:relative;z-index:1}
+  @keyframes bob{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-10px) rotate(4deg)}}
+  @keyframes floatUp{to{transform:translateY(-115vh) rotate(25deg);opacity:0}}
+</style>
+</head>
+<body>
+<main class="card">
+  <div class="face">🥺👉👈</div>
+  <h1>I'M SORRY</h1>
+  <p class="sub">I know one “sorry” may not be enough… so here's a whole lot of them. 💗</p>
+  <div class="sorrywall" id="wall"></div>
+  <p class="sub">Please don't stay upset with me, okay? 🥹💕</p>
+  <button onclick="moreSorry()">Still angry? 😭</button>
+  <button onclick="forgive()">Okay, I forgive you 💖</button>
+  <div id="extra"></div>
+  <div class="tiny">Made with a little regret and lots of love 💌</div>
+</main>
+<script>
+const wall=document.getElementById('wall');
+for(let i=0;i<27;i++){const s=document.createElement('span');s.textContent=['SORRY 😭','sorry 💗','so so sorry 🥺'][i%3];wall.appendChild(s)}
+function moreSorry(){
+ document.getElementById('extra').style.display='block';
+ document.getElementById('extra').innerHTML='SORRYYYYYYYY 😭💗<br>'.repeat(3)+'Sorry sorry sorry sorry sorry sorry sorry… 🥺💕';
+ for(let i=0;i<18;i++) setTimeout(makeHeart,i*65);
+}
+function forgive(){
+ document.getElementById('extra').style.display='block';
+ document.getElementById('extra').innerHTML='YAY? 🥹💖<br>Thank youuu… I’ll try to make it right. 🫶';
+ for(let i=0;i<30;i++) setTimeout(makeHeart,i*45);
+}
+function makeHeart(){
+ const h=document.createElement('div');h.className='heart';h.textContent=['💗','💖','💕','🥺','💞'][Math.floor(Math.random()*5)];
+ h.style.left=Math.random()*100+'vw';h.style.fontSize=(20+Math.random()*25)+'px';h.style.animationDuration=(3+Math.random()*3)+'s';
+ document.body.appendChild(h);setTimeout(()=>h.remove(),6500);
+}
+setInterval(()=>{if(Math.random()>.35)makeHeart()},900);
+</script>
+</body>
+</html>
